@@ -5,6 +5,14 @@
 [functions]
   node_bundler = "esbuild"
 
+# Le panel admin ne doit jamais être accessible depuis le domaine public
+# du site — il est déployé séparément (voir play-stars-admin-netlify).
+[[redirects]]
+  from = "/admin/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
 # Une requête sur la racine avec ?app=... passe par la fonction OG, qui
 # détecte si c'est un robot de partage (sert le HTML avec meta tags) ou
 # un vrai visiteur (redirige vers la SPA normale).

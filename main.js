@@ -788,3 +788,34 @@ window.setInterval(async () => {
   }
   syncNotificationDot();
 }, 60000);
+
+// Vérifie périodiquement si une nouvelle version du site a été
+// déployée. Sans ça, un navigateur qui a mis le site en cache (fréquent
+// sur mobile, surtout avec une connexion instable) peut continuer à
+// exécuter une version ancienne du JS indéfiniment, même après un
+// déploiement — les correctifs et nouvelles fonctionnalités
+// n'atteignent alors jamais ces utilisateurs tant qu'ils ne vident pas
+// leur cache manuellement.
+let knownSiteVersion = null;
+async function checkForNewVersion() {
+  try {
+    const response = await fetch(`/version.json?t=${Date.now()}`, { cache: 'no-store' });
+    if (!response.ok) return;
+    const { version } = await response.json();
+    if (knownSiteVersion === null) {
+      knownSiteVersion = version;
+      return;
+    }
+    if (version && version !== knownSiteVersion) {
+      // Recharge complètement la page pour récupérer tous les fichiers
+      // à jour (le navigateur ira bien chercher le nouveau HTML/JS,
+      // puisque cette requête n'est pas mise en cache).
+      window.location.reload();
+    }
+  } catch {
+    // Pas de réseau ou version.json absent : on ignore silencieusement,
+    // ce n'est pas critique pour le fonctionnement du site.
+  }
+}
+checkForNewVersion();
+window.setInterval(checkForNewVersion, 5 * 60 * 1000);

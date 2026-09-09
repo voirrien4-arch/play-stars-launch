@@ -64,16 +64,20 @@ Deno.serve(async (request) => {
     if (!targetUserId) return jsonResponse({ error: 'missing_target' }, 400);
 
     if (action === 'unlock') {
-      await admin.from('profiles').update({
+      const { data, error: unlockError } = await admin.from('profiles').update({
         status: 'active',
         quarantine_reason: null,
         verification_requested: false
-      }).eq('id', targetUserId);
+      }).eq('id', targetUserId).select('id');
+      if (unlockError) throw unlockError;
+      if (!data || data.length === 0) return jsonResponse({ error: 'target_not_found' }, 404);
       return jsonResponse({ ok: true });
     }
 
     if (action === 'ban') {
-      await admin.from('profiles').update({ status: 'banned' }).eq('id', targetUserId);
+      const { data, error: banError } = await admin.from('profiles').update({ status: 'banned' }).eq('id', targetUserId).select('id');
+      if (banError) throw banError;
+      if (!data || data.length === 0) return jsonResponse({ error: 'target_not_found' }, 404);
       return jsonResponse({ ok: true });
     }
 
