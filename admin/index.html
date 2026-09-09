@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#6d4aff">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Play Stars — Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="admin.css">
+  <script>
+    // Mêmes clés publiques ("anon", protégées par RLS) que le site principal.
+    window.PLAYSTARS_SUPABASE_URL = 'https://hdbscsygultpzurfydpn.supabase.co';
+    window.PLAYSTARS_SUPABASE_ANON_KEY = 'sb_publishable_19cEMplz7rGqCy4GMEM6XQ__LRaFj1I';
+  </script>
+</head>
+<body data-admin-app>
+  <div id="loginScreen" class="admin-login-screen">
+    <form id="loginForm" class="admin-login-card">
+      <span class="eyebrow">Play Stars</span>
+      <h1>Panel admin</h1>
+      <p class="muted">Connecte-toi avec un compte administrateur.</p>
+      <label class="admin-field">
+        <span>Email</span>
+        <input type="email" name="email" autocomplete="username" required>
+      </label>
+      <label class="admin-field">
+        <span>Mot de passe</span>
+        <input type="password" name="password" autocomplete="current-password" required>
+      </label>
+      <p id="loginError" class="admin-error" hidden></p>
+      <button class="button" type="submit">Se connecter</button>
+    </form>
+  </div>
+
+  <div id="adminApp" class="admin-shell" hidden>
+    <aside class="admin-sidebar">
+      <div class="admin-brand">
+        <span class="admin-brand-mark">★</span>
+        <div>
+          <strong>Play Stars</strong>
+          <span class="muted">Panel admin</span>
+        </div>
+      </div>
+      <nav class="admin-nav" id="adminNav">
+        <button class="admin-nav-item" type="button" data-tab="dashboard">📊 Tableau de bord</button>
+        <button class="admin-nav-item" type="button" data-tab="publications">📦 Publications</button>
+        <button class="admin-nav-item" type="button" data-tab="developers">🏷️ Badges développeur</button>
+        <button class="admin-nav-item" type="button" data-tab="users">👥 Utilisateurs</button>
+        <button class="admin-nav-item" type="button" data-tab="security">🛡️ Sécurité</button>
+        <button class="admin-nav-item" type="button" data-tab="reports">⚑ Signalements</button>
+        <button class="admin-nav-item" type="button" data-tab="feedback">💬 Feedback</button>
+        <button class="admin-nav-item" type="button" data-tab="platform">🚀 Mise à jour appli</button>
+        <button class="admin-nav-item" type="button" data-tab="uploadlogs">📋 Logs d'upload</button>
+        <button class="admin-nav-item" type="button" data-tab="diagnostic">🔧 Diagnostic</button>
+      </nav>
+      <div class="admin-sidebar-footer">
+        <div class="admin-user" id="adminUserBadge"></div>
+        <button class="button button-ghost button-small" type="button" id="logoutButton">Déconnexion</button>
+      </div>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-topbar">
+        <h1 id="tabTitle">Tableau de bord</h1>
+        <button class="button button-small" type="button" id="refreshButton">↻ Actualiser</button>
+      </header>
+      <div id="toast" class="admin-toast" hidden></div>
+      <div id="tabContent" class="admin-content" aria-busy="false"></div>
+    </main>
+  </div>
+
+  <script type="module" src="admin.js"></script>
+</body>
+</html>

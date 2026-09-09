@@ -1,0 +1,122 @@
+.notification-modal {
+  width: min(520px, 100%);
+  max-height: min(760px, calc(100vh - 32px));
+  overflow: auto;
+}
+
+.notifications-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 2px 0 16px;
+}
+
+.notifications-tabs {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 14px;
+  background: var(--surface-soft);
+}
+
+.notifications-tab {
+  min-height: 36px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 10px;
+  color: var(--muted);
+  background: transparent;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.notifications-tab.is-active,
+.notifications-tab:hover,
+.notifications-tab:focus-visible {
+  color: var(--primary-strong);
+  background: var(--surface);
+}
+
+.notifications-unread-count {
+  color: var(--primary-strong);
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.notification-item {
+  align-items: flex-start;
+  min-height: 76px;
+  border: 1px solid transparent;
+  transition: border-color .18s ease, transform .18s ease;
+}
+
+.notification-item:hover {
+  border-color: var(--line);
+  transform: translateY(-1px);
+}
+
+.notification-item.is-important {
+  border-color: color-mix(in srgb, var(--gold) 40%, var(--line));
+}
+
+.notification-item-copy {
+  min-width: 0;
+  flex: 1;
+}
+
+.notification-item-copy p {
+  overflow-wrap: anywhere;
+}
+
+.notification-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-left: auto;
+}
+
+.notification-read-button {
+  min-height: 32px;
+  padding: 0 9px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  color: var(--primary-strong);
+  background: var(--surface);
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.notification-read-button:hover,
+.notification-read-button:focus-visible {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+}
+
+.notification-seen {
+  color: var(--success);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+@media (max-width: 570px) {
+  .notifications-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .notifications-tabs {
+    width: 100%;
+  }
+
+  .notifications-tab {
+    flex: 1;
+  }
+
+  .notification-item-actions {
+    align-self: flex-start;
+  }
+}

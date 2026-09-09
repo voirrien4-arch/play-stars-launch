@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: play-stars
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: PLAYSTARS_SUPABASE_URL
+        value: https://hdbscsygultpzurfydpn.supabase.co
+      - key: PLAYSTARS_SUPABASE_ANON_KEY
+        value: sb_publishable_19cEMplz7rGqCy4GMEM6XQ__LRaFj1I
+      - key: SITE_URL
+        value: https://playstars.duckdns.org

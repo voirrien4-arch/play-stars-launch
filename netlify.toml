@@ -1,0 +1,21 @@
+[build]
+  functions = "netlify/functions"
+  publish = "."
+
+[functions]
+  node_bundler = "esbuild"
+
+# Une requête sur la racine avec ?app=... passe par la fonction OG, qui
+# détecte si c'est un robot de partage (sert le HTML avec meta tags) ou
+# un vrai visiteur (redirige vers la SPA normale).
+[[redirects]]
+  from = "/"
+  to = "/.netlify/functions/og-app"
+  status = 200
+  query = { app = ":app" }
+
+# SPA classique : toute autre route inconnue retombe sur index.html.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

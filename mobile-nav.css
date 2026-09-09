@@ -1,0 +1,16 @@
+/* Navigation mobile : le profil est accessible depuis la page Profil et le menu Compte. */
+@media (max-width: 800px) {
+  .mobile-nav {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.page-heading .profile-account-menu-button {
+  align-self: flex-start;
+}
+
+@media (max-width: 570px) {
+  .page-heading .profile-account-menu-button {
+    width: 100%;
+  }
+}

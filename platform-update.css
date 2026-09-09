@@ -1,0 +1,54 @@
+.platform-update-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(16, 15, 28, .72);
+  backdrop-filter: blur(10px);
+}
+
+.platform-update-dialog {
+  width: min(100%, 460px);
+  padding: 30px 24px 24px;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 26px;
+  background: var(--surface);
+  box-shadow: 0 24px 80px rgba(0,0,0,.28);
+  text-align: center;
+}
+
+.platform-update-icon {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 18px;
+  border-radius: 20px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.platform-update-dialog h2 { margin: 6px 0 10px; }
+.platform-update-dialog p { margin: 0 auto 18px; max-width: 36ch; color: var(--muted); line-height: 1.6; }
+.platform-update-meta { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; color: var(--muted); font-size: 13px; }
+.platform-update-meta span { padding: 7px 10px; border-radius: 999px; background: var(--surface-soft); }
+.platform-update-download { width: 100%; min-height: 48px; }
+.platform-update-dialog small { display: block; margin-top: 14px; color: var(--muted); line-height: 1.45; }
+.platform-update-success { padding: 13px 14px; border-radius: 12px; background: color-mix(in srgb, var(--success) 14%, transparent); color: var(--success); font-weight: 700; }
+
+.platform-update-admin { margin-top: 20px; }
+.platform-update-admin .section-heading { align-items: flex-start; }
+.platform-update-current { display: grid; gap: 5px; margin: 16px 0; padding: 14px; border-radius: 14px; background: var(--surface-soft); color: var(--muted); font-size: 13px; }
+.platform-update-current strong { color: var(--text); }
+.platform-update-form { display: grid; gap: 14px; margin-top: 18px; }
+.platform-update-form .button { justify-self: start; }
+
+@media (max-width: 570px) {
+  .platform-update-backdrop { padding: 14px; }
+  .platform-update-dialog { padding: 26px 18px 20px; border-radius: 22px; }
+  .platform-update-form .button { width: 100%; }
+}

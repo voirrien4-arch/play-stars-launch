@@ -1,0 +1,134 @@
+.developer-hero-content {
+  max-width: 720px;
+}
+
+.developer-status-message {
+  margin-top: 16px;
+  padding: 13px 15px;
+  border: 1px solid rgba(255, 255, 255, .22);
+  border-radius: 14px;
+  color: rgba(255, 255, 255, .88);
+  background: rgba(255, 255, 255, .1);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.developer-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.developer-stat {
+  min-height: 96px;
+  display: grid;
+  align-content: center;
+  gap: 5px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: var(--surface-soft);
+}
+
+.developer-stat strong {
+  font: 800 24px/1 'Plus Jakarta Sans', sans-serif;
+}
+
+.developer-stat span {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.developer-checklist {
+  display: grid;
+  gap: 11px;
+  margin: 16px 0 0;
+}
+
+.developer-checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.developer-checklist-item strong {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--text);
+}
+
+.developer-checklist-marker {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--muted);
+  background: var(--surface);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.developer-checklist-item.is-done .developer-checklist-marker {
+  color: #fff;
+  background: var(--success);
+}
+
+.developer-publication-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.developer-publication-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 13px;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: var(--surface-soft);
+}
+
+.developer-publication-copy {
+  min-width: 0;
+}
+
+.developer-publication-copy strong,
+.developer-publication-copy span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.developer-publication-copy strong {
+  font-size: 13px;
+}
+
+.developer-publication-copy span {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+@media (max-width: 570px) {
+  .developer-stat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .developer-stat {
+    min-height: 72px;
+  }
+
+  .developer-publication-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

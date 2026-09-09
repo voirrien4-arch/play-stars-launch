@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr" data-theme="light"><head><link rel="preload" href="locales/fr.json" as="fetch" type="application/json" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#6d4aff">
+  <meta name="description" content="Play Stars, le catalogue d'applications Android qui met les bonnes apps au premier plan.">
+  <title>Play Stars — Apps Android</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="mobile-nav.css">
+  <link rel="stylesheet" href="account-menu.css">
+  <link rel="stylesheet" href="account-features.css">
+  <link rel="stylesheet" href="platform-update.css">
+  <link rel="stylesheet" href="updates.css">
+  <link rel="stylesheet" href="favorites.css">
+  <link rel="stylesheet" href="channel.css">
+  <link rel="stylesheet" href="rankings.css">
+  <link rel="stylesheet" href="profile-photo.css">
+  <link rel="stylesheet" href="profile-phases.css">
+  <link rel="stylesheet" href="notifications.css">
+  <link rel="stylesheet" href="feedback.css">
+  <link rel="stylesheet" href="developer-space.css">
+  <link rel="stylesheet" href="search.css">
+</head>
+<body>
+  <div id="app" class="app-shell">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <button class="brand" type="button" data-action="navigate" data-view="home" aria-label="Play Stars, accueil">
+          <span class="brand-mark" aria-hidden="true"><span>✦</span></span>
+          <span class="brand-name">Play <b>Stars</b></span>
+        </button>
+        <div class="header-search" role="search">
+          <span class="search-icon" aria-hidden="true"></span>
+          <input id="globalSearch" type="search" autocomplete="off" data-i18n-placeholder="search.placeholder" placeholder="Rechercher une application, un jeu…" aria-label="Rechercher une application" aria-controls="mainContent" aria-expanded="false">
+          <button class="clear-search is-hidden" type="button" data-action="clear-search" aria-label="Effacer la recherche">×</button>
+          <div id="searchPopover" class="is-hidden"></div>
+        </div>
+        <div class="header-actions">
+          <button class="icon-button notification-button" type="button" data-action="notifications" aria-label="Voir les notifications">
+            <span class="bell-icon" aria-hidden="true"></span><span class="notification-dot is-hidden"></span>
+          </button>
+          <button class="avatar avatar-small" id="profileAvatarButton" type="button" data-action="account-menu" data-i18n-title="accountMenu.open" data-i18n-aria-label="accountMenu.open" title="Ouvrir le menu Compte Utilisateur" aria-label="Ouvrir le menu Compte Utilisateur"><span id="profileAvatarInitial" aria-hidden="true">M</span></button>
+        </div>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar" aria-label="Navigation principale">
+        <nav class="side-nav" id="desktopNav"><button class="nav-item active" type="button" data-action="navigate" data-view="home" aria-current="page"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1Z"></path></svg></span><span>Accueil</span></button><button class="nav-item " type="button" data-action="navigate" data-view="categories" aria-current="false"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg></span><span>Catégories</span></button><button class="nav-item " type="button" data-action="navigate" data-view="updates" aria-current="false"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 11a8 8 0 0 0-14.9-4M4 4v5h5M4 13a8 8 0 0 0 14.9 4M20 20v-5h-5"></path></svg></span><span>Mises à jour</span></button><button class="nav-item " type="button" data-action="navigate" data-view="favorites" aria-current="false"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20.8 8.8c0 5.5-8.8 10.2-8.8 10.2S3.2 14.3 3.2 8.8A4.8 4.8 0 0 1 12 6.2a4.8 4.8 0 0 1 8.8 2.6Z"></path></svg></span><span>Favoris</span></button><button class="nav-item " type="button" data-action="navigate" data-view="profile" aria-current="false"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></span><span>Profil</span></button></nav>
+        <div class="sidebar-note">
+          <span class="sparkle-icon" aria-hidden="true">✦</span>
+          <strong data-i18n="sidebar.developerTitle">Tu crées des apps ?</strong>
+          <p data-i18n="sidebar.developerText">Demande ton badge développeur et partage tes créations.</p>
+          <button class="text-link" type="button" data-action="developer" data-i18n="sidebar.developerCta">Découvrir l'espace développeur</button>
+        </div>
+        <div class="sidebar-footer"><span class="status-pulse"></span><span data-i18n="sidebar.demo">Catalogue Play Stars</span></div>
+      </aside>
+
+      <main id="mainContent" class="main-content" tabindex="-1"><div class="content-wrap">
+    <section class="hero"><div class="hero-content">
+      <span class="eyebrow">Bienvenue sur Play Stars</span>
+      <h1>Découvre les apps qui te ressemblent.</h1>
+      <p>Un catalogue Android pensé pour trouver, suivre et partager tes applications préférées.</p>
+      <div class="hero-actions"><button class="button button-light" type="button" data-action="navigate" data-view="categories">Explorer le catalogue</button><button class="button button-ghost" type="button" data-action="developer">Je suis développeur</button></div>
+    </div></section>
+    <section class="section"><div class="section-heading"><h2>Explorer par catégorie</h2><button class="link-button" type="button" data-action="navigate" data-view="categories">Tout voir</button></div><div class="category-row"><button class="category-chip " type="button" data-action="category" data-category="games">Jeux</button><button class="category-chip active" type="button" data-action="category" data-category="tools">Outils</button><button class="category-chip active" type="button" data-action="category" data-category="education">Éducation</button><button class="category-chip active" type="button" data-action="category" data-category="social">Réseaux sociaux</button><button class="category-chip active" type="button" data-action="category" data-category="communication">Communication</button><button class="category-chip active" type="button" data-action="category" data-category="productivity">Productivité</button><button class="category-chip active" type="button" data-action="category" data-category="media">Multimédia</button></div></section>
+    <section class="section"><div class="section-heading"><h2>Nouvelles pépites</h2><button class="link-button" type="button" data-action="navigate" data-view="updates">Voir les nouveautés</button></div><div class="app-grid"><article class="app-card" data-app-id="publication-627f04f7-66a6-473e-92fe-2605d2168a52">
+    <button class="app-card-top" type="button" data-action="open-app" data-app-id="publication-627f04f7-66a6-473e-92fe-2605d2168a52" aria-label="Voir la fiche : Ndama+">
+      <span class="app-icon " style="background:linear-gradient(135deg,#6046e8,#a48cfb)" aria-hidden="true">ND</span>
+      <span class="app-card-title"><h3>Ndama+</h3><span class="app-developer">Équipe Play Stars</span></span>
+    </button>
+    <p class="app-card-description">Une application Android publiée sur Play Stars.</p>
+    <div class="app-meta"><span class="rating">★ 3<span>(2)</span></span><span>Éducation</span></div>
+    <div class="card-actions">
+      <button class="button button-small" type="button" data-action="open-app" data-app-id="publication-627f04f7-66a6-473e-92fe-2605d2168a52">Voir la fiche</button>
+      <button class="button button-ghost button-small" type="button" data-action="share-app" data-app-id="publication-627f04f7-66a6-473e-92fe-2605d2168a52">Partager</button>
+      <button class="favorite-button " type="button" data-action="favorite" data-app-id="publication-627f04f7-66a6-473e-92fe-2605d2168a52" aria-label="Ajouter aux favoris">♡</button>
+    </div>
+  </article><article class="app-card" data-app-id="lumen-notes">
+    <button class="app-card-top" type="button" data-action="open-app" data-app-id="lumen-notes" aria-label="Voir la fiche : Lumen Notes">
+      <span class="app-icon " style="background:linear-gradient(135deg,#ff9966,#ff5e62)" aria-hidden="true">LN</span>
+      <span class="app-card-title"><h3>Lumen Notes</h3><span class="app-developer">Northstar Labs</span></span>
+    </button>
+    <p class="app-card-description">Organise tes idées avec des notes claires, rapides et synchronisées.</p>
+    <div class="app-meta"><span class="rating">★ 4.8<span>(1 240)</span></span><span>Productivité</span></div>
+    <div class="card-actions">
+      <button class="button button-small" type="button" data-action="open-app" data-app-id="lumen-notes">Voir la fiche</button>
+      <button class="button button-ghost button-small" type="button" data-action="share-app" data-app-id="lumen-notes">Partager</button>
+      <button class="favorite-button " type="button" data-action="favorite" data-app-id="lumen-notes" aria-label="Ajouter aux favoris">♡</button>
+    </div>
+  </article><article class="app-card" data-app-id="orbit-run">
+    <button class="app-card-top" type="button" data-action="open-app" data-app-id="orbit-run" aria-label="Voir la fiche : Orbit Run">
+      <span class="app-icon " style="background:linear-gradient(135deg,#25245e,#9b5de5)" aria-hidden="true">OR</span>
+      <span class="app-card-title"><h3>Orbit Run</h3><span class="app-developer">Pixel Forge</span></span>
+    </button>
+    <p class="app-card-description">Un jeu d’arcade spatial nerveux, coloré et facile à prendre en main.</p>
+    <div class="app-meta"><span class="rating">★ 4.7<span>(893)</span></span><span>Jeux</span></div>
+    <div class="card-actions">
+      <button class="button button-small" type="button" data-action="open-app" data-app-id="orbit-run">Voir la fiche</button>
+      <button class="button button-ghost button-small" type="button" data-action="share-app" data-app-id="orbit-run">Partager</button>
+      <button class="favorite-button " type="button" data-action="favorite" data-app-id="orbit-run" aria-label="Ajouter aux favoris">♡</button>
+    </div>
+  </article><article class="app-card" data-app-id="focus-flow">
+    <button class="app-card-top" type="button" data-action="open-app" data-app-id="focus-flow" aria-label="Voir la fiche : Focus Flow">
+      <span class="app-icon " style="background:linear-gradient(135deg,#00a896,#02c39a)" aria-hidden="true">FF</span>
+      <span class="app-card-title"><h3>Focus Flow</h3><span class="app-developer">Calm Circuit</span></span>
+    </button>
+    <p class="app-card-description">Transforme tes objectifs en sessions simples et motivantes.</p>
+    <div class="app-meta"><span class="rating">★ 4.6<span>(565)</span></span><span>Productivité</span></div>
+    <div class="card-actions">
+      <button class="button button-small" type="button" data-action="open-app" data-app-id="focus-flow">Voir la fiche</button>
+      <button class="button button-ghost button-small" type="button" data-action="share-app" data-app-id="focus-flow">Partager</button>
+      <button class="favorite-button " type="button" data-action="favorite" data-app-id="focus-flow" aria-label="Ajouter aux favoris">♡</button>
+    </div>
+  </article></div></section>
+    <section class="section rankings-cta"><div class="rankings-cta-copy"><span class="eyebrow">Les classements Play Stars</span><h2>Tu veux voir les meilleures apps ?</h2><p>Retrouve ici les APK les plus téléchargés et les mieux notés.</p></div><button class="button" type="button" data-action="navigate" data-view="rankings">Voir les classements</button></section>
+  </div></main>
+    </div>
+
+    <footer class="site-footer site-footer-stacked">
+      <span class="site-footer-brand" data-i18n="footer.brand">Digital Lab GN</span>
+      <a class="button button-small site-footer-channel" href="https://whatsapp.com/channel/0029Vb7Bk6jEVccC46JZL92T" target="_blank" rel="noopener noreferrer" data-i18n="footer.officialChannel" data-i18n-aria-label="footer.officialChannel" aria-label="Chaîne WhatsApp officielle">Chaîne WhatsApp officielle</a>
+    </footer>
+
+    <nav class="mobile-nav" id="mobileNav" aria-label="Navigation mobile"><button class="nav-item active" type="button" data-action="navigate" data-view="home" aria-current="page"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1Z"></path></svg></span><span>Accueil</span></button><button class="nav-item " type="button" data-action="navigate" data-view="categories" aria-current="false"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg></span><span>Catégories</span></button><button class="nav-item " type="button" data-action="navigate" data-view="updates" aria-current="false"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 11a8 8 0 0 0-14.9-4M4 4v5h5M4 13a8 8 0 0 0 14.9 4M20 20v-5h-5"></path></svg></span><span>Mises à jour</span></button><button class="nav-item " type="button" data-action="navigate" data-view="favorites" aria-current="false"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20.8 8.8c0 5.5-8.8 10.2-8.8 10.2S3.2 14.3 3.2 8.8A4.8 4.8 0 0 1 12 6.2a4.8 4.8 0 0 1 8.8 2.6Z"></path></svg></span><span>Favoris</span></button></nav>
+    <div id="aiAssistantRoot"><div class="ai-assistant-layer ">
+    <button class="ai-fab is-positioned" style="--ai-left:96%;--ai-top:59.636633057249455%;" type="button" data-action="toggle-ai" title="Maintiens puis fais glisser le bouton IA" aria-label="Ouvrir l’assistant Play Stars" aria-expanded="false"><span aria-hidden="true">✦</span></button>
+    
+  </div></div>
+    <div id="modalRoot"></div>
+    <div id="platformUpdateRoot"></div>
+    <div id="toastRoot" aria-live="polite" aria-atomic="true"></div>
+  </div>
+  
+  <script>
+    // Configuration Supabase — remplace ces valeurs par celles de ton projet
+    // (Project Settings → API dans le tableau de bord Supabase).
+    window.PLAYSTARS_SUPABASE_URL = 'https://hdbscsygultpzurfydpn.supabase.co';
+    window.PLAYSTARS_SUPABASE_ANON_KEY = 'sb_publishable_19cEMplz7rGqCy4GMEM6XQ__LRaFj1I';
+  </script>
+  <script type="module" src="main.js"></script>
+
+
+</body></html>
